@@ -15584,6 +15584,20 @@ input CategoryInput {
 
   """Alt text for a product media."""
   backgroundImageAlt: String
+
+  """
+  Fields required to update the category metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the category private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
 }
 
 input SeoInput {
@@ -15598,6 +15612,14 @@ input SeoInput {
 Variables of this type must be set to null in mutations. They will be replaced with a filename from a following multipart part containing a binary file. See: https://github.com/jaydenseric/graphql-multipart-request-spec.
 """
 scalar Upload
+
+input MetadataInput {
+  """Key of a metadata item."""
+  key: String!
+
+  """Value of a metadata item."""
+  value: String!
+}
 
 """
 Deletes a category. 
@@ -15740,6 +15762,20 @@ input CollectionCreateInput {
   """
   publicationDate: Date
 
+  """
+  Fields required to update the collection metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the collection private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
+
   """List of products to be added to the collection."""
   products: [ID!]
 }
@@ -15844,6 +15880,20 @@ input CollectionInput {
   DEPRECATED: this field will be removed in Saleor 4.0.
   """
   publicationDate: Date
+
+  """
+  Fields required to update the collection metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the collection private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
 }
 
 """
@@ -15970,6 +16020,20 @@ input ProductCreateInput {
   """Defines the product rating value."""
   rating: Float
 
+  """
+  Fields required to update the product metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the product private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
+
   """ID of the type that product belongs to."""
   productType: ID!
 }
@@ -16079,6 +16143,20 @@ input ProductInput {
 
   """Defines the product rating value."""
   rating: Float
+
+  """
+  Fields required to update the product metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the product private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
 }
 
 """
@@ -16421,6 +16499,20 @@ input DigitalContentUploadInput {
   """Overwrite default automatic_fulfillment setting for variant."""
   automaticFulfillment: Boolean
 
+  """
+  Fields required to update the digital content metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the digital content private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
+
   """Represents an file in a multipart request."""
   contentFile: Upload!
 }
@@ -16464,6 +16556,20 @@ input DigitalContentInput {
 
   """Overwrite default automatic_fulfillment setting for variant."""
   automaticFulfillment: Boolean
+
+  """
+  Fields required to update the digital content metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the digital content private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
 }
 
 """
@@ -16528,6 +16634,20 @@ input ProductVariantCreateInput {
   Note: this API is currently in Feature Preview and can be subject to changes at later point.
   """
   quantityLimitPerCustomer: Int
+
+  """
+  Fields required to update the product variant metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the product variant private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
 
   """Product ID of which type is the variant."""
   product: ID!
@@ -16641,6 +16761,20 @@ input ProductVariantBulkCreateInput {
   Note: this API is currently in Feature Preview and can be subject to changes at later point.
   """
   quantityLimitPerCustomer: Int
+
+  """
+  Fields required to update the product variant metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the product variant private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
 
   """Stocks of a product available for sale."""
   stocks: [StockInput!]
@@ -16823,6 +16957,20 @@ input ProductVariantInput {
   Note: this API is currently in Feature Preview and can be subject to changes at later point.
   """
   quantityLimitPerCustomer: Int
+
+  """
+  Fields required to update the product variant metadata.
+  
+  Added in Saleor 3.8.
+  """
+  metadata: [MetadataInput!]
+
+  """
+  Fields required to update the product variant private metadata.
+  
+  Added in Saleor 3.8.
+  """
+  privateMetadata: [MetadataInput!]
 }
 
 """
@@ -17115,14 +17263,6 @@ input TransactionCreateInput {
 
   """Payment private metadata."""
   privateMetadata: [MetadataInput!]
-}
-
-input MetadataInput {
-  """Key of a metadata item."""
-  key: String!
-
-  """Value of a metadata item."""
-  value: String!
 }
 
 input TransactionEventInput {
