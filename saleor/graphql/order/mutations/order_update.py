@@ -76,7 +76,7 @@ class OrderUpdate(DraftOrderCreate):
     @traced_atomic_transaction()
     def save(cls, info, instance, cleaned_input):
 
-        cls._save_addresses(info, instance, cleaned_input)
+        cls._save_addresses(instance, cleaned_input)
         if instance.user_email:
             user = User.objects.filter(email=instance.user_email).first()
             instance.user = user
